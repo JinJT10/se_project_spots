@@ -1,5 +1,5 @@
 .card {
-    max-width: 413px;
+    max-width: 100%;
     max-height: 445px;
 }
 
@@ -12,6 +12,13 @@
 
 .card__title {
     margin: 12px 0 0;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    font-family: "Poppins", Helvetica, sans-serif;
+    text-overflow: ellipsis ;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .card__content{
@@ -32,4 +39,24 @@
 
 .card__like-button:hover {
     opacity: 100%;
+}
+
+
+@media screen and (max-width: 627px) {
+    .card {
+        width: 288px;
+        height: 318px;
+    }
+
+    .card__image {
+        width: 288px;
+        height: 288px;
+    }
+
+    .card__title {
+        font-size: 16px;
+        line-height: 1;
+        width: 288px;
+        height: 18px;
+    }
 }
