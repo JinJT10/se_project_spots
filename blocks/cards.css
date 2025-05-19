@@ -9,6 +9,7 @@
     padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, 413px);
+    justify-content: center;
     gap: 40px 20px;
 }
 
@@ -19,7 +20,6 @@
 
     .cards__list{
         grid-template-columns: repeat(auto-fit, 288px);
-        justify-content: center;
         gap: 20px;
     }
 }

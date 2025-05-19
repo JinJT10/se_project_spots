@@ -24,6 +24,12 @@
     font-size: 32px;
     line-height: 1;
     font-family: "Poppins", Helvetica, sans-serif;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    max-width:420px;
 
 }
 
@@ -46,6 +52,7 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     max-width: 420px;
+    color: #212121;
 }
 
 .profile__edit-button {

@@ -12,7 +12,17 @@
 This project is a profile page that is made so all the elements are displayed correctly on mobile devices. Following the design given from the Figma, I utilized media queries, grid, and flexbox; I was able to style the page that is suitable for most screen sizes and accessible. 
 
 A neat and presentable fashion that drives the point across and similar to well known social media pages; being easy on the eyes.
-  
+
+**Tech Stack**
+* HTML5
+* CSS
+* Responsive Design
+
+
+**Deployment**
+
+- Distributed through GitHub pages:
+
 **Figma**  
   
 * [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
