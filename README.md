@@ -21,7 +21,7 @@ A neat and presentable fashion that drives the point across and similar to well 
 
 **Deployment**
 
-- Distributed through GitHub pages:
+- Distributed through GitHub pages: [Deployment Link](http://jinjt10.github.io/se_project_spots/)
 
 **Figma**  
   
