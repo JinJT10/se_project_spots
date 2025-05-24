@@ -44,3 +44,5 @@ The way you'll do this at work is by exporting images directly from Figma — we
 ![Alt text](/images/spots_logo.svg)
 
 **Video**
+
+- Google Drive: [Link](https://drive.google.com/file/d/1ij3mTICW-xJt4rIAliOiFaZhIjhIN3Iz/view?usp=sharing)
