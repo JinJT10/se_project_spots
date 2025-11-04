@@ -9,14 +9,22 @@ const profileDescriptionInput= profileModal.querySelector("#profile-description-
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 
+function openModal(modal) {
+    modal.classList.add("modal_is-opened");
+}
+
+function closeModal(modal) {
+    modal.classList.remove("modal_is-opened");
+}
+
 profileButton.addEventListener("click", function() {
     profileNameInput.value = profileNameEl.textContent;
     profileDescriptionInput.value = profileDescriptionEl.textContent;
-    profileModal.classList.add("modal_is-opened");
+    openModal(profileModal);
 });
 
 profileCloseBtn.addEventListener("click", function() {
-    profileModal.classList.remove("modal_is-opened");
+    closeModal(profileModal);
 });
 
 profileForm.addEventListener("submit", function (evt) {
@@ -24,8 +32,7 @@ profileForm.addEventListener("submit", function (evt) {
   profileNameEl.textContent = profileNameInput.value;
   profileDescriptionEl.textContent = profileDescriptionInput.value;
   console.log("profile submitted");
-  profileModal.classList.remove("modal_is-opened");
-
+  closeModal(profileModal);
 });
 
 const newPostButton = document.querySelector(".profile__add-button");
@@ -38,19 +45,22 @@ const newPostCaption = newPostModal.querySelector("#post-caption-input");
 
 
 newPostButton.addEventListener("click", function() {
-    newPostModal.classList.add("modal_is-opened");
+    openModal(newPostModal);
 });
 
 newPostCloseBtn.addEventListener("click", function() {
-    newPostModal.classList.remove("modal_is-opened");
+    closeModal(newPostModal);
 });
 
 
 newPostForm.addEventListener("submit", function(evt){
     evt.preventDefault();
-
-
     console.log('Caption input:', newPostCaption.value);
     console.log('Link input', newPostImage.value);
-    newPostModal.classList.remove("modal_is-opened");
+    closeModal(newPostModal);
 });
+
+/* I looked back at the previous lessons (specifically innerHTML & 
+textContent chapter) and didn't see the purposed of the use of a form
+submission handler nor function. Please give me feedback should I need
+to change this*/
