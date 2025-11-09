@@ -59,8 +59,3 @@ newPostForm.addEventListener("submit", function(evt){
     console.log('Link input', newPostImage.value);
     closeModal(newPostModal);
 });
-
-/* I looked back at the previous lessons (specifically innerHTML & 
-textContent chapter) and didn't see the purposed of the use of a form
-submission handler nor function. Please give me feedback should I need
-to change this*/
