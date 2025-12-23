@@ -1,5 +1,4 @@
 # Project 3: Spots
-(NOTE: I will record my video once I make sure all corrections are finalized)
 ### Overview  
 
 * Intro  
@@ -9,13 +8,15 @@
   
 **Intro**
   
-This project is a profile page that is made so all the elements are displayed correctly on mobile devices. Following the design given from the Figma, I utilized media queries, grid, and flexbox; I was able to style the page that is suitable for most screen sizes and accessible. 
+This project was developed for users to customize their page from their name, a small description of themselves, and posting images. The profile page was also adapts to different screen resolutions for the majority of mobile users. Following the design given from the Figma, I utilized media queries, grid, and flexbox; I was able to style the page that is suitable for most screen sizes and accessible. 
 
-A neat and presentable fashion that drives the point across and similar to well known social media pages; being easy on the eyes.
+A neat and presentable fashion that drives the point across and similar to well known social media pages; being easy on the eyes and is as responsible as possible to users.
 
 **Tech Stack**
 * HTML5
 * CSS
+* Figma
+* JavaScript
 * Responsive Design
 
 
@@ -46,3 +47,8 @@ The way you'll do this at work is by exporting images directly from Figma — we
 **Video**
 
 - Google Drive: [Link](https://drive.google.com/file/d/1ij3mTICW-xJt4rIAliOiFaZhIjhIN3Iz/view?usp=sharing)
+
+**Improvements**
+
+At this current stage of when this page was developed, I would like to
+add the functionality to post images w/ captions, view enlarged modals of each post (perhaps w/ a comment section for other users), and clean up the code as I become experienced with HTML and CSS.
