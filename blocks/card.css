@@ -38,8 +38,35 @@
     cursor: pointer;
 }
 
+.card__like-button_active {
+    background-image: url(../images/state_liked.svg);
+    opacity: 1;
+}
+
+
 .card__like-button:hover {
     opacity: 100%;
+}
+
+.card__like-button_active:hover {
+    opacity: 40%
+}
+
+.card__delete-button {
+    background-image: url(../images/delete_button.png);
+    opacity: 1;
+    width: 32px;
+    height: 32px;
+    border: none;
+    position: relative;
+    top: 36px;
+    left: 380px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.card__delete-button:hover {
+    background-image: url(../images/state_delete.svg);
 }
 
 

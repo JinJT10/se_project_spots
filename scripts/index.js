@@ -55,10 +55,52 @@ newPostCloseBtn.addEventListener("click", function() {
 
 newPostForm.addEventListener("submit", function(evt){
     evt.preventDefault();
+
+    const inputValues = {
+        name: newPostCaption.value,
+        link: newPostImage.value,
+    };
+    
+    const cardElement = getCardElement(inputValues);
+    cardsList.prepend(cardElement);
+
+
+
     console.log('Caption input:', newPostCaption.value);
     console.log('Link input', newPostImage.value);
     closeModal(newPostModal);
 });
+
+const cardTemplate = document
+    .querySelector("#card-template")
+    .content.querySelector(".card");
+const cardsList = document.querySelector(".cards__list");
+
+
+
+function getCardElement (data) {
+    const cardElement = cardTemplate.cloneNode(true);
+    const cardTitleEl = cardElement.querySelector(".card__title")
+    const cardImageEl = cardElement.querySelector(".card__image")
+    
+    cardImageEl.src = data.link;
+    cardImageEl.alt = data.name;
+    cardTitleEl.textContent = data.name;
+    
+    const cardLikeBtn = cardElement.querySelector(".card__like-button");
+
+    cardLikeBtn.addEventListener("click", () => {
+        cardLikeBtn.classList.toggle("card__like-button_active");
+    });
+
+    const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
+    
+    cardDeleteBtn.addEventListener("click", () => {
+        cardElement.remove();
+    });
+
+    return cardElement;
+};
 
 
 const initialCards = [
@@ -94,6 +136,6 @@ const initialCards = [
 ];
 
 initialCards.forEach(function(item) {
-    console.log(item.name);
-    console.log(item.link);
+    const cardElement = getCardElement(item);
+    cardsList.append(cardElement);
 });
