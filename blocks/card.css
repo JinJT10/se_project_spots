@@ -59,7 +59,7 @@
     height: 32px;
     border: none;
     position: relative;
-    top: 36px;
+    top: 40px;
     left: 380px;
     background-color: transparent;
     cursor: pointer;
@@ -85,5 +85,15 @@
         line-height: 1;
         max-width: 250px;
 }
+    .card__delete-button {
+        top: -335px;
+        left: 250px;
+    }
+}
 
+@media screen and (max-width: 480px) {
+    .card__delete-button {
+        top: -335px;
+        left: 250px;
+    }
 }

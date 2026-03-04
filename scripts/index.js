@@ -43,6 +43,18 @@ const newPostForm = newPostModal.querySelector(".modal__form");
 const newPostImage = newPostModal.querySelector("#post-link-input");
 const newPostCaption = newPostModal.querySelector("#post-caption-input");
 
+const previewModal = document.querySelector("#preview-modal");
+const previewImage = previewModal.querySelector(".modal__image");
+const previewCaption = previewModal.querySelector(".modal__img-caption");
+const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
+
+
+previewModalCloseBtn.addEventListener("click", function() {
+    closeModal(previewModal);
+});
+
+
+const modals = document.querySelectorAll(".modal");
 
 newPostButton.addEventListener("click", function() {
     openModal(newPostModal);
@@ -78,6 +90,13 @@ const cardsList = document.querySelector(".cards__list");
 
 
 
+function handleImageClick(data) {
+  previewImage.src = data.link;
+  previewImage.alt = data.name;
+  previewCaption.textContent = data.name;
+  openModal(previewModal);
+}
+
 function getCardElement (data) {
     const cardElement = cardTemplate.cloneNode(true);
     const cardTitleEl = cardElement.querySelector(".card__title")
@@ -99,11 +118,20 @@ function getCardElement (data) {
         cardElement.remove();
     });
 
+    cardImageEl.addEventListener("click", () => handleImageClick(data))
+
     return cardElement;
 };
 
 
+
 const initialCards = [
+    {
+        name: "Golden Gate Bridge",
+        link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg"
+    },
+
+
     {
         name: "Val Thorens",
         link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
@@ -138,4 +166,15 @@ const initialCards = [
 initialCards.forEach(function(item) {
     const cardElement = getCardElement(item);
     cardsList.append(cardElement);
+});
+
+modals.forEach((modal) => {
+  modal.addEventListener("mousedown", (evt) => {
+    if (
+      evt.target.classList.contains("modal") ||
+      evt.target.classList.contains("modal__close-btn")
+    ) {
+      closeModal(modal);
+    }
+  });
 });
