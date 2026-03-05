@@ -67,7 +67,7 @@ newPostCloseBtn.addEventListener("click", function() {
 
 newPostForm.addEventListener("submit", function(evt){
     evt.preventDefault();
-
+    
     const inputValues = {
         name: newPostCaption.value,
         link: newPostImage.value,
@@ -80,6 +80,8 @@ newPostForm.addEventListener("submit", function(evt){
 
     console.log('Caption input:', newPostCaption.value);
     console.log('Link input', newPostImage.value);
+
+    newPostForm.reset()
     closeModal(newPostModal);
 });
 

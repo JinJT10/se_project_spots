@@ -1,5 +1,6 @@
 .card {
     max-width: 100%;
+    position: relative;
 }
 
 .card__image{
@@ -7,6 +8,7 @@
     width: 413px;
     object-fit: cover;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .card__title {
@@ -33,9 +35,10 @@
     height: 20px;
     border: none;
     background-color: transparent;
-    opacity: 40%;
+    opacity: 0.4;
     margin: 12px 0 0;
     cursor: pointer;
+    background-repeat: no-repeat
 }
 
 .card__like-button_active {
@@ -58,9 +61,9 @@
     width: 32px;
     height: 32px;
     border: none;
-    position: relative;
-    top: 40px;
-    left: 380px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
     background-color: transparent;
     cursor: pointer;
 }
@@ -85,10 +88,7 @@
         line-height: 1;
         max-width: 250px;
 }
-    .card__delete-button {
-        top: -335px;
-        left: 250px;
-    }
+
 }
 
 @media screen and (max-width: 480px) {
