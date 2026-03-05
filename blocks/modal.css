@@ -50,7 +50,7 @@
     opacity: 40%;
 }
 
-.modal__close_type_preview {
+.modal__close-btn_type_preview {
     top: 0;
     right: -52px;
     color: white;
@@ -191,5 +191,9 @@
 
     .modal__image {
         max-width: unset;
+    }
+
+    .modal__img-caption {
+        font-size: 16px;
     }
 }

@@ -35,26 +35,13 @@ profileForm.addEventListener("submit", function (evt) {
   closeModal(profileModal);
 });
 
+
 const newPostButton = document.querySelector(".profile__add-button");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const newPostForm = newPostModal.querySelector(".modal__form");
-
 const newPostImage = newPostModal.querySelector("#post-link-input");
 const newPostCaption = newPostModal.querySelector("#post-caption-input");
-
-const previewModal = document.querySelector("#preview-modal");
-const previewImage = previewModal.querySelector(".modal__image");
-const previewCaption = previewModal.querySelector(".modal__img-caption");
-const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
-
-
-previewModalCloseBtn.addEventListener("click", function() {
-    closeModal(previewModal);
-});
-
-
-const modals = document.querySelectorAll(".modal");
 
 newPostButton.addEventListener("click", function() {
     openModal(newPostModal);
@@ -84,6 +71,17 @@ newPostForm.addEventListener("submit", function(evt){
     newPostForm.reset()
     closeModal(newPostModal);
 });
+
+const previewModal = document.querySelector("#preview-modal");
+const previewImage = previewModal.querySelector(".modal__image");
+const previewCaption = previewModal.querySelector(".modal__img-caption");
+const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
+
+
+previewModalCloseBtn.addEventListener("click", function() {
+    closeModal(previewModal);
+});
+
 
 const cardTemplate = document
     .querySelector("#card-template")
@@ -169,6 +167,8 @@ initialCards.forEach(function(item) {
     const cardElement = getCardElement(item);
     cardsList.append(cardElement);
 });
+
+const modals = document.querySelectorAll(".modal");
 
 modals.forEach((modal) => {
   modal.addEventListener("mousedown", (evt) => {
