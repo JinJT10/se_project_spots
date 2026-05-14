@@ -18,6 +18,7 @@ A neat and presentable fashion that drives the point across and similar to well 
 * Figma
 * JavaScript
 * Responsive Design
+* Input Validation
 
 
 **Deployment**
