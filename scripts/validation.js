@@ -1,3 +1,14 @@
+const settings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__submit-btn",
+  inactiveButtonClass: "modal__submit-btn_inactive",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error"
+}
+
+
+
 const showInputError = (formElement, inputElement, errorMessage, settings) => {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
     errorElement.textContent = errorMessage;
@@ -12,9 +23,9 @@ const hideInputError = (formElement, inputElement, settings) => {
 
 const checkInputValidity = (formElement, inputElement, settings) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(formElement, inputElement, inputElement.validationMessage, settings);
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputElement, settings);
   }
 };
 
@@ -59,15 +70,6 @@ const enableValidation = (settings) => {
  console.log(formList);
 };
 
-
-const settings = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__submit-btn",
-  inactiveButtonClass: "modal__submit-btn_inactive",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible"
-}
 
 
 enableValidation(settings);
