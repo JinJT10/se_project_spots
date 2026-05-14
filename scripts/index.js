@@ -9,12 +9,21 @@ const profileDescriptionInput= profileModal.querySelector("#profile-description-
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 
+ function handleEscKey(evt) {
+    if (evt.key === 'Escape') {
+        const modal = document.querySelector(".modal_is-opened");
+        closeModal(modal);
+    }
+  };
+
 function openModal(modal) {
     modal.classList.add("modal_is-opened");
+    document.addEventListener("keydown", handleEscKey);
 }
 
 function closeModal(modal) {
     modal.classList.remove("modal_is-opened");
+    document.removeEventListener("keydown", handleEscKey);
 }
 
 profileButton.addEventListener("click", function() {
@@ -40,6 +49,7 @@ const newPostButton = document.querySelector(".profile__add-button");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const newPostForm = newPostModal.querySelector(".modal__form");
+const newPostSubmitBtn = newPostModal.querySelector(".modal__submit-btn");
 const newPostImage = newPostModal.querySelector("#post-link-input");
 const newPostCaption = newPostModal.querySelector("#post-caption-input");
 
@@ -64,10 +74,9 @@ newPostForm.addEventListener("submit", function(evt){
     cardsList.prepend(cardElement);
 
 
-
     console.log('Caption input:', newPostCaption.value);
     console.log('Link input', newPostImage.value);
-
+    disableButton(newPostSubmitBtn, settings);
     newPostForm.reset()
     closeModal(newPostModal);
 });
@@ -106,20 +115,20 @@ function getCardElement (data) {
     cardImageEl.alt = data.name;
     cardTitleEl.textContent = data.name;
     
+    
     const cardLikeBtn = cardElement.querySelector(".card__like-button");
-
     cardLikeBtn.addEventListener("click", () => {
         cardLikeBtn.classList.toggle("card__like-button_active");
     });
 
-    const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
-    
+
+    const cardDeleteBtn = cardElement.querySelector(".card__delete-button"); 
     cardDeleteBtn.addEventListener("click", () => {
         cardElement.remove();
     });
 
-    cardImageEl.addEventListener("click", () => handleImageClick(data))
 
+    cardImageEl.addEventListener("click", () => handleImageClick(data))
     return cardElement;
 };
 
@@ -130,7 +139,6 @@ const initialCards = [
         name: "Golden Gate Bridge",
         link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg"
     },
-
 
     {
         name: "Val Thorens",
