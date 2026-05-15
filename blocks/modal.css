@@ -72,7 +72,7 @@
     font-size: 16px;
     font-weight: 500;
     font-family: "Poppins", Helvetica, sans-serif;
-    border: 1px solid rgba(33, 33, 33, 1);
+    border: none;
     border-radius: 8px;
     cursor: pointer;
 }
@@ -177,6 +177,27 @@
 
 
 @media screen and (max-width: 627px) {
+    .modal__container {
+        padding: 22px 12px 12px;
+    }
+
+    .modal__title {
+        font-size: 20px;
+    }
+
+    .modal__submit-btn {
+        max-width: none;
+    }
+
+    .modal__close-btn {
+        top: 12px;
+        right: 12px;
+    }
+    
+    .modal__label {
+        margin-bottom: 24px;
+    }
+
     .modal__close-btn_type_preview {
         top: -48px;
         right: 0;
