@@ -4,7 +4,7 @@ const settings = {
   submitButtonSelector: ".modal__submit-btn",
   inactiveButtonClass: "modal__submit-btn_inactive",
   inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error"
+  errorClass: "modal__error_visible"
 }
 
 
@@ -13,12 +13,14 @@ const showInputError = (formElement, inputElement, errorMessage, settings) => {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
     errorElement.textContent = errorMessage;
     inputElement.classList.add(settings.inputErrorClass);
+    errorElement.classList.add(settings.errorClass);
 };
 
 const hideInputError = (formElement, inputElement, settings) => {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
     errorElement.textContent = "";
     inputElement.classList.remove(settings.inputErrorClass);
+    errorElement.classList.remove(settings.errorClass);
 };
 
 const checkInputValidity = (formElement, inputElement, settings) => {
