@@ -19,6 +19,7 @@ A neat and presentable fashion that drives the point across and similar to well 
 * JavaScript
 * Responsive Design
 * Input Validation
+* Webpack Bundling
 
 
 **Deployment**
@@ -58,3 +59,6 @@ and some challenges I faced while building it:
 
 At this current stage of when this page was developed, I would like to
 add the functionality to post images w/ captions, view enlarged modals of each post (perhaps w/ a comment section for other users), and clean up the code as I become experienced with HTML and CSS.
+
+Implemented Webpack for module bundling, allowing me to organize my code into separate files/modules and import them where needed.
+Used plugins: [HtmlWebpackPlugin] [CleanWebpackPlugin] [MiniCssExtractPlugin]
