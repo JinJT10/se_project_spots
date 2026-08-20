@@ -1,3 +1,6 @@
+import { enableValidation, settings, disableButton } from "../scripts/validation.js";
+import "./index.css";
+
 const profileButton = document.querySelector(".profile__edit-button");
 const profileModal = document.querySelector("#edit-profile-modal");
 const profileForm = profileModal.querySelector(".modal__form");
@@ -170,3 +173,5 @@ modals.forEach((modal) => {
         }
     });
 });
+
+enableValidation(settings);
