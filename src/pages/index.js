@@ -1,5 +1,6 @@
 import { enableValidation, settings, disableButton } from "../scripts/validation.js";
 import "./index.css";
+import Api from "../../utils/api.js";
 
 const profileButton = document.querySelector(".profile__edit-button");
 const profileModal = document.querySelector("#edit-profile-modal");
@@ -12,6 +13,7 @@ const profileDescriptionInput = profileModal.querySelector(
 );
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
+const profileAvatarEl = document.querySelector(".profile__avatar");
 
 function handleEscKey(evt) {
     if (evt.key === "Escape") {
@@ -40,6 +42,9 @@ profileButton.addEventListener("click", function () {
 
 profileForm.addEventListener("submit", function (evt) {
     evt.preventDefault();
+    api.editUserInfo({name: profileNameInput.value, about: profileDescriptionInput.value})
+        .then((data) => {})
+        .catch(console.error);
     profileNameEl.textContent = profileNameInput.value;
     profileDescriptionEl.textContent = profileDescriptionInput.value;
     console.log("profile submitted");
@@ -156,10 +161,32 @@ const initialCards = [
     },
 ];
 
-initialCards.forEach(function (item) {
-    const cardElement = getCardElement(item);
-    cardsList.append(cardElement);
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "61a5f12f-3b1b-4935-8dfc-dcc67a1a5b99",
+    "Content-Type": "application/json"
+  }
 });
+
+// Destructure the second item in the callback of the .then()
+api.getAppInfo()
+    .then(([cards, userInfo]) => {
+        console.log(cards);
+        cards.forEach((item) => {
+            const cardElement = getCardElement(item);
+            cardsList.append(cardElement);
+        });
+        profileNameEl.textContent = userInfo.name
+        profileDescriptionEl.textContent = userInfo.about
+        profileAvatarEl.src = userInfo.avatar
+        
+        //Handle the user's information
+        // - Set the src of the avatar image
+        // - Set the textContent of both the text elements
+    })
+    .catch(console.error)
+    
 
 const modals = document.querySelectorAll(".modal");
 
