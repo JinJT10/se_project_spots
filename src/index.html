@@ -21,7 +21,7 @@
       <main class="content">
         <section class="profile page__section">
             <div class="profile__avatar-container">
-             <button class="profile__avatar-btn">
+                <button class="profile__avatar-btn">
                     <img src="<%=require('./images/light-pencil_icon.svg')%>" alt="Pencil icon" class="profile__pencil-icon">
                 </button>
              <img
@@ -123,5 +123,22 @@
         </div>
       </div>
     </div>
+
+    <div class="modal" id="edit-avatar-modal">
+        <div class="modal__container">
+          <button type="button" class="modal__close-btn">
+            <img src="<%=require('./images/close_icon.svg')%>" alt="close" class="modal__close-icon">
+          </button>
+          <h2 class="modal__title">Edit Profile Avatar</h2>
+          <form class="modal__form" novalidate>
+            <label for="profile-avatar-input" class="modal__label">
+              Profile Picture
+              <input id="profile-avatar-input"  class="modal__input" placeholder="Paste the link to an image" required>
+              <span id="profile-name-input-error" class="modal__error"></span>
+            </label>
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
   </body>
 </html>
