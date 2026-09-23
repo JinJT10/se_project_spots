@@ -8,9 +8,7 @@ const profileForm = profileModal.querySelector(".modal__form");
 const profileCloseBtn = profileModal.querySelector(".modal__close-btn");
 
 const profileNameInput = profileModal.querySelector("#profile-name-input");
-const profileDescriptionInput = profileModal.querySelector(
-    "#profile-description-input",
-);
+const profileDescriptionInput = profileModal.querySelector("#profile-description-input");
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 const profileAvatarEl = document.querySelector(".profile__avatar");
@@ -39,17 +37,34 @@ profileButton.addEventListener("click", function () {
 });
 
 
-
 profileForm.addEventListener("submit", function (evt) {
     evt.preventDefault();
     api.editUserInfo({name: profileNameInput.value, about: profileDescriptionInput.value})
-        .then((data) => {})
+        .then((data) => {
+            // Use data instead of input values
+            profileNameEl.textContent = profileNameInput.value;
+            profileDescriptionEl.textContent = profileDescriptionInput.value;
+            console.log("profile submitted");
+            closeModal(profileModal);
+        })
         .catch(console.error);
-    profileNameEl.textContent = profileNameInput.value;
-    profileDescriptionEl.textContent = profileDescriptionInput.value;
-    console.log("profile submitted");
-    closeModal(profileModal);
+    
 });
+
+const profileAvatarModal = document.querySelector("#edit-avatar-modal");
+const profileAvatarForm = profileAvatarModal.querySelector(".modal__form");
+const profileAvatarBtn = document.querySelector(".profile__avatar-btn");
+
+
+profileAvatarBtn.addEventListener("click", function () {
+    openModal(profileAvatarModal);
+});
+
+profileAvatarForm.addEventListener("submit", function (evt){
+    evt.preventDefault();
+
+});
+
 
 const newPostButton = document.querySelector(".profile__add-button");
 const newPostModal = document.querySelector("#new-post-modal");

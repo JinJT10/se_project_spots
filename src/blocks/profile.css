@@ -24,7 +24,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     visibility: hidden;
     background-color: #212121;
     border-radius: 8px;
@@ -153,7 +153,12 @@
 
     .profile__avatar-btn {
         visibility: visible;
-        
+        display: flex;
+        opacity: 60%;
+        align-items: center;
+        width: 23px;
+        height: 23px;
+        margin: 4px;
     }
 
     .profile__avatar-container {
@@ -162,6 +167,9 @@
         border-radius: 8px;
         width: 80px;
         height: 80px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
     }
 
     .profile__avatar-btn:after {
