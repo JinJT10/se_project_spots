@@ -97,7 +97,7 @@ newPostForm.addEventListener("submit", function (evt) {
 
     const cardElement = getCardElement(inputValues);
     cardsList.prepend(cardElement);
-
+    // create api for adding new card
     console.log("Caption input:", newPostCaption.value);
     console.log("Link input", newPostImage.value);
     disableButton(newPostSubmitBtn, settings);
@@ -140,7 +140,7 @@ function getCardElement(data) {
 
     const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
     cardDeleteBtn.addEventListener("click", () => {
-        cardElement.remove();
+        // open delete card modal
     });
 
     cardImageEl.addEventListener("click", () => handleImageClick(data));
@@ -192,7 +192,7 @@ const api = new Api({
   }
 });
 
-// Destructure the second item in the callback of the .then()
+
 api.getAppInfo()
     .then(([cards, userInfo]) => {
         console.log(cards);
@@ -203,10 +203,6 @@ api.getAppInfo()
         profileNameEl.textContent = userInfo.name
         profileDescriptionEl.textContent = userInfo.about
         profileAvatarEl.src = userInfo.avatar
-        
-        //Handle the user's information
-        // - Set the src of the avatar image
-        // - Set the textContent of both the text elements
     })
     .catch(console.error)
     
