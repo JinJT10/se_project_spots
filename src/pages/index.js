@@ -54,6 +54,7 @@ profileForm.addEventListener("submit", function (evt) {
 const profileAvatarModal = document.querySelector("#edit-avatar-modal");
 const profileAvatarForm = profileAvatarModal.querySelector(".modal__form");
 const profileAvatarBtn = document.querySelector(".profile__avatar-btn");
+const profileAvatarInput = profileAvatarModal.querySelector("#profile-avatar-input");
 
 
 profileAvatarBtn.addEventListener("click", function () {
@@ -62,7 +63,14 @@ profileAvatarBtn.addEventListener("click", function () {
 
 profileAvatarForm.addEventListener("submit", function (evt){
     evt.preventDefault();
-
+    api.addNewAvatar({avatar: profileAvatarInput.value})
+        .then((data) => {
+            // Use data instead of input values
+            profileAvatarEl.src = data.avatar
+            console.log("Avatar submitted");
+            closeModal(profileAvatarModal);
+        })
+        .catch(console.error);
 });
 
 

@@ -159,6 +159,7 @@
         width: 23px;
         height: 23px;
         margin: 4px;
+        gap: 0px;
     }
 
     .profile__avatar-container {
