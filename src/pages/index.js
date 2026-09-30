@@ -41,9 +41,8 @@ profileForm.addEventListener("submit", function (evt) {
     evt.preventDefault();
     api.editUserInfo({name: profileNameInput.value, about: profileDescriptionInput.value})
         .then((data) => {
-            // Use data instead of input values
-            profileNameEl.textContent = profileNameInput.value;
-            profileDescriptionEl.textContent = profileDescriptionInput.value;
+            profileNameEl.textContent = data.name;
+            profileDescriptionEl.textContent = data.about;
             console.log("profile submitted");
             closeModal(profileModal);
         })
@@ -65,7 +64,6 @@ profileAvatarForm.addEventListener("submit", function (evt){
     evt.preventDefault();
     api.addNewAvatar({avatar: profileAvatarInput.value})
         .then((data) => {
-            // Use data instead of input values
             profileAvatarEl.src = data.avatar
             console.log("Avatar submitted");
             closeModal(profileAvatarModal);
@@ -95,14 +93,21 @@ newPostForm.addEventListener("submit", function (evt) {
         link: newPostImage.value,
     };
 
-    const cardElement = getCardElement(inputValues);
-    cardsList.prepend(cardElement);
-    // create api for adding new card
+    
+    // create api for adding new cards
+     api.addNewCard({name: newPostCaption.value, link: newPostImage.value})
+    .then((data) => {
+        const cardElement = getCardElement(inputValues);
+        cardsList.prepend(cardElement);
+        disableButton(newPostSubmitBtn, settings);
+        newPostForm.reset();
+        closeModal(newPostModal);
+    })
+    .catch(console.error);
+
+    
     console.log("Caption input:", newPostCaption.value);
     console.log("Link input", newPostImage.value);
-    disableButton(newPostSubmitBtn, settings);
-    newPostForm.reset();
-    closeModal(newPostModal);
 });
 
 const previewModal = document.querySelector("#preview-modal");
@@ -110,7 +115,10 @@ const previewImage = previewModal.querySelector(".modal__image");
 const previewCaption = previewModal.querySelector(".modal__img-caption");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 
+const cardDelModal = document.querySelector("#delete-card-modal");
+const cardDelForm = cardDelModal.querySelector(".modal__form");
 
+let selectedCard, selectedCardID;
 
 const cardTemplate = document
     .querySelector("#card-template")
@@ -124,28 +132,50 @@ function handleImageClick(data) {
     openModal(previewModal);
 }
 
+function handleDeleteCard(cardElement, data) {
+    selectedCard = cardElement;
+    selectedCardID = data._id;
+    console.log(data);
+    openModal(cardDelModal);
+}
+
+function handleDeleteSubmit(evt) {
+    evt.preventDefault();
+    api.deleteCard({id: selectedCardID})
+    .then(() => {
+        selectedCard.remove();
+        closeModal(cardDelModal);
+    })
+    .catch(console.error);
+}
+
+cardDelForm.addEventListener("submit", handleDeleteSubmit);
+
 function getCardElement(data) {
     const cardElement = cardTemplate.cloneNode(true);
     const cardTitleEl = cardElement.querySelector(".card__title");
     const cardImageEl = cardElement.querySelector(".card__image");
+    const cardLikeBtn = cardElement.querySelector(".card__like-button");
+    const cardDelBtn = cardElement.querySelector(".card__delete-button");
 
     cardImageEl.src = data.link;
     cardImageEl.alt = data.name;
     cardTitleEl.textContent = data.name;
 
-    const cardLikeBtn = cardElement.querySelector(".card__like-button");
+    
     cardLikeBtn.addEventListener("click", () => {
         cardLikeBtn.classList.toggle("card__like-button_active");
     });
 
-    const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
-    cardDeleteBtn.addEventListener("click", () => {
-        // open delete card modal
-    });
-
+   
+    
+    cardDelBtn.addEventListener("click", (evt) => handleDeleteCard(cardElement, data));
     cardImageEl.addEventListener("click", () => handleImageClick(data));
     return cardElement;
 }
+
+
+
 
 const initialCards = [
     {
@@ -219,5 +249,6 @@ modals.forEach((modal) => {
         }
     });
 });
+
 
 enableValidation(settings);

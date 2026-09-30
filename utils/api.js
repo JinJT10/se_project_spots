@@ -50,17 +50,25 @@ class Api {
       }),
     }).then(this._checkResponse);    
     }
-  // other methods for working with the API
+
     addNewAvatar({avatar}) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        avatar,
+        avatar
       }),
     }).then(this._checkResponse);    
     }
 
+    deleteCard({id}) {
+    return fetch(`${this._baseUrl}/cards/${id}`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then(this._checkResponse);    
+    }
+
+    //Create liking cards method
 }
 
 
