@@ -116,7 +116,7 @@ const previewCaption = previewModal.querySelector(".modal__img-caption");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 
 const cardDelModal = document.querySelector("#delete-card-modal");
-const cardDelForm = cardDelModal.querySelector(".modal__form");
+const cardDelForm = cardDelModal.querySelector(".modal__del-form");
 
 let selectedCard, selectedCardID;
 

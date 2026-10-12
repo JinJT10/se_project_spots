@@ -141,11 +141,11 @@
         </div>
     </div>
     <div class="modal" id="delete-card-modal">
-        <div class="modal__container">
-          <button type="button" class="modal__close-btn">
-            <img src="<%=require('./images/close_icon.svg')%>" alt="close" class="modal__close-icon">
+        <div class="modal__del-container">
+          <button type="button" class="modal__close-btn modal__close-btn_type_delete">
+            <img src="<%=require('./images/close_icon2.svg')%>" alt="close" class="modal__close-icon modal__close-icon_type_delete">
           </button>
-          <form class="modal__form" novalidate> 
+          <form class="modal__del-form" novalidate> 
             <h3 class="modal__del-title">Are you sure you want to delete this image?</h3>
                 <button type="submit" class="modal__submit-btn modal__submit-btn_delete">Delete</button>
                 <button class="modal__cancel-btn">Cancel</button>
