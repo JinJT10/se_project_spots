@@ -5,7 +5,6 @@ import Api from "../../utils/api.js";
 const profileButton = document.querySelector(".profile__edit-button");
 const profileModal = document.querySelector("#edit-profile-modal");
 const profileForm = profileModal.querySelector(".modal__form");
-const profileCloseBtn = profileModal.querySelector(".modal__close-btn");
 
 const profileNameInput = profileModal.querySelector("#profile-name-input");
 const profileDescriptionInput = profileModal.querySelector("#profile-description-input");
@@ -87,14 +86,11 @@ newPostButton.addEventListener("click", function () {
 
 newPostForm.addEventListener("submit", function (evt) {
     evt.preventDefault();
-
     const inputValues = {
         name: newPostCaption.value,
         link: newPostImage.value,
     };
 
-    
-    // create api for adding new cards
      api.addNewCard({name: newPostCaption.value, link: newPostImage.value})
     .then((data) => {
         const cardElement = getCardElement(inputValues);
@@ -104,10 +100,6 @@ newPostForm.addEventListener("submit", function (evt) {
         closeModal(newPostModal);
     })
     .catch(console.error);
-
-    
-    console.log("Caption input:", newPostCaption.value);
-    console.log("Link input", newPostImage.value);
 });
 
 const previewModal = document.querySelector("#preview-modal");
@@ -130,6 +122,16 @@ function handleImageClick(data) {
     previewImage.alt = data.name;
     previewCaption.textContent = data.name;
     openModal(previewModal);
+}
+
+function handleLike(evt, id) {
+    //remove evt.target.classList.toggle("card__like-button_active");
+    api.handleLikeStatus({})
+    // 1. check whether card is liked or not
+    //    const isLiked ===?
+    // 2. call the likeStatus method, pass it the appropriate arguments
+    // 3. handle the response (.then and .catch)
+    // 4. in the .then, toggle active class
 }
 
 function handleDeleteCard(cardElement, data) {
@@ -163,12 +165,7 @@ function getCardElement(data) {
     cardTitleEl.textContent = data.name;
 
     
-    cardLikeBtn.addEventListener("click", () => {
-        cardLikeBtn.classList.toggle("card__like-button_active");
-    });
-
-   
-    
+    cardLikeBtn.addEventListener("click", (evt) => handleLike(evt, data, id));
     cardDelBtn.addEventListener("click", (evt) => handleDeleteCard(cardElement, data));
     cardImageEl.addEventListener("click", () => handleImageClick(data));
     return cardElement;

@@ -68,6 +68,15 @@ class Api {
     }).then(this._checkResponse);    
     }
 
+    handleLikeStatus(id) {
+    const method = isLiked ? "DELETE" : "PUT";
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+      method: method,
+      headers: this._headers,
+    }).then(this._checkResponse);    
+    }
+
+
     //Create liking cards method
 }
 
