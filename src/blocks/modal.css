@@ -36,6 +36,16 @@
     box-sizing: border-box;
 }
 
+.modal__del-container{
+    background-color: white;
+    max-width: 630px;
+    width: 100%;
+    border-radius: 8px;
+    padding: 32px 50px;
+    position: relative;
+    box-sizing: border-box;
+}
+
 .modal__close-btn {
     position: absolute;
     top: 32px;
@@ -48,8 +58,17 @@
     cursor: pointer;
 }
 
+.modal__close-btn_type_delete {
+    top: 0px;
+    right: -52px;
+}
+
 .modal__close-icon {
     opacity: 0.4;
+}
+
+.modal__close-icon_type_delete {
+    opacity: 0.7;
 }
 
 .modal__close-btn_type_preview {
@@ -75,6 +94,7 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    width: 100%;
 }
 
 .modal__submit-btn:hover {
@@ -87,6 +107,35 @@
     background: rgb(237, 237, 237);
 }
 
+.modal__submit-btn_delete {
+    background-color: #FF6565;
+    color: #212121;
+}
+
+.modal__submit-btn_delete:hover {
+    background-color: #FF3333;
+}
+
+.modal__cancel-btn {
+    max-width: 156px;
+    height: 52px;
+    background-color: #FFFFFF;
+    color: #212121;
+    line-height: 1;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Poppins", Helvetica, sans-serif;
+    border: 1px solid;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.modal__cancel-btn:hover {
+    background-color: #212121;
+    color: #FFFFFF;
+}
+
 .modal__title {
     margin: 0 0 32px;
     line-height: 1;
@@ -95,9 +144,24 @@
     font-family: "Poppins", Helvetica, sans-serif;
 }
 
+.modal__del-title {
+    margin: 0 0 32px;
+    line-height: 1;
+    font-size: 24px;
+    font-weight: 500;
+    font-family: "Poppins", Helvetica, sans-serif;
+}
+
 .modal__form {
     display: flex;
     flex-direction: column;
+}
+
+.modal__del-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 20px;
 }
 
 .modal__label {
@@ -185,8 +249,16 @@
         font-size: 20px;
     }
 
+    .modal__del-title {
+        text-align: center;
+    }
+
     .modal__submit-btn {
         max-width: none;
+    }
+
+    .modal__submit-btn_delete {
+        max-width: 156px;
     }
 
     .modal__close-btn {
@@ -194,13 +266,18 @@
         right: 12px;
     }
     
-    .modal__label {
-        margin-bottom: 24px;
+    .modal__close-btn_type_delete {
+        top: -50px;
+        right: 2px;
     }
 
     .modal__close-btn_type_preview {
         top: -48px;
         right: 0;
+    }
+
+    .modal__label {
+        margin-bottom: 24px;
     }
 
     .modal__image {
@@ -210,4 +287,11 @@
     .modal__img-caption {
         font-size: 16px;
     }
+
+    .modal__del-form {
+        gap: 12px;
+        flex-direction: column;
+        align-items: center;
+    }
+    /*Create media query modal for mobile devices*/
 }
