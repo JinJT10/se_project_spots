@@ -10,6 +10,8 @@
   
 This project was developed for users to customize their page from their name, a small description of themselves, and posting images. The profile page was also adapts to different screen resolutions for the majority of mobile users. Following the design given from the Figma, I utilized media queries, grid, and flexbox; I was able to style the page that is suitable for most screen sizes and accessible. 
 
+The newest addition is refactoring the code with using a API script to not only organize the methods, but also created functionality and stores user/card information to a server. 
+
 A neat and presentable fashion that drives the point across and similar to well known social media pages; being easy on the eyes and is as responsible as possible to users.
 
 **Tech Stack**
@@ -20,6 +22,7 @@ A neat and presentable fashion that drives the point across and similar to well 
 * Responsive Design
 * Input Validation
 * Webpack Bundling
+* API Classes
 
 
 **Deployment**
@@ -53,12 +56,12 @@ Check out these videos, where I describe my project
 and some challenges I faced while building it:
 
 - First Video: [Link](https://drive.google.com/file/d/1ij3mTICW-xJt4rIAliOiFaZhIjhIN3Iz/view?usp=sharing)
-- (NEW) Second Video: [Link](https://drive.google.com/file/d/1ffEHkpOtKhXJYqiYcrDSdjgIcN37m_Ek/view?usp=sharing)
+- Second Video: [Link](https://drive.google.com/file/d/1ffEHkpOtKhXJYqiYcrDSdjgIcN37m_Ek/view?usp=sharing)
+- (NEW) Final Video [Link](https://drive.google.com/file/d/1qovYt9JpLD8fy0TNiwrHAGoJVgCc599t/view?usp=sharing)
 
 **Improvements**
 
-At this current stage of when this page was developed, I would like to
-add the functionality to post images w/ captions, view enlarged modals of each post (perhaps w/ a comment section for other users), and clean up the code as I become experienced with HTML and CSS.
+At this current stage of when this page was developed, I would like to refactor the code to be a bit more readible and refine some of the naming conventions. 
 
 Implemented Webpack for module bundling, allowing me to organize my code into separate files/modules and import them where needed.
 Used plugins: [HtmlWebpackPlugin] [CleanWebpackPlugin] [MiniCssExtractPlugin]

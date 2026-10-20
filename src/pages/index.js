@@ -101,7 +101,7 @@ newPostForm.addEventListener("submit", function (evt) {
     evt.submitter.textContent = "Saving...";
      api.addNewCard({name: newPostCaption.value, link: newPostImage.value})
     .then((data) => {
-        const cardElement = getCardElement(inputValues);
+        const cardElement = getCardElement(data);
         cardsList.prepend(cardElement);
         disableButton(newPostSubmitBtn, settings);
         newPostForm.reset();
