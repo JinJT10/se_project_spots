@@ -75,9 +75,6 @@ class Api {
       headers: this._headers,
     }).then(this._checkResponse);    
     }
-
-
-    //Create liking cards method
 }
 
 

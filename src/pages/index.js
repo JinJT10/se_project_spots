@@ -150,7 +150,6 @@ function handleLike(evt, data) {
 function handleDeleteCard(cardElement, data) {
     selectedCard = cardElement;
     selectedCardID = data._id;
-    console.log(data);
     openModal(cardDelModal);
 }
 
@@ -262,7 +261,8 @@ modals.forEach((modal) => {
     modal.addEventListener("click", (evt) => {
         if (
             evt.target.classList.contains("modal") ||
-            evt.target.closest(".modal__close-btn")
+            evt.target.closest(".modal__close-btn") || 
+            evt.target.closest(".modal__cancel-btn")
         ) {
             closeModal(modal);
         }
