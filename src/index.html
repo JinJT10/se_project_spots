@@ -20,13 +20,18 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%=require('./images/avatar.jpg')%>"
-            alt="profile avatar"
-            class="profile__avatar"
-          />
+            <div class="profile__avatar-container">
+                <button class="profile__avatar-btn">
+                    <img src="<%=require('./images/light-pencil_icon.svg')%>" alt="Pencil icon" class="profile__pencil-icon">
+                </button>
+             <img
+                src="<%=require('./images/avatar.jpg')%>"
+                alt="profile avatar"
+                class="profile__avatar"
+                />
+            </div>
           <div class="profile__column">
-            <h1 class="profile__name">Bessie Coleman</h1>
+            <h1 class="profile__name">Test</h1>
             <p class="profile__description">Civil Aviator</p>
             <button type="button" class="profile__edit-button">
               <img
@@ -117,6 +122,35 @@
             <p class="modal__img-caption"></p>
         </div>
       </div>
+    </div>
+
+    <div class="modal" id="edit-avatar-modal">
+        <div class="modal__container">
+          <button type="button" class="modal__close-btn">
+            <img src="<%=require('./images/close_icon.svg')%>" alt="close" class="modal__close-icon">
+          </button>
+          <h2 class="modal__title">Edit Profile Avatar</h2>
+          <form class="modal__form" novalidate>
+            <label for="profile-avatar-input" class="modal__label">
+              Profile Picture
+              <input id="profile-avatar-input" type="url" class="modal__input" placeholder="Paste the link to an image" required>
+              <span id="profile-avatar-input-error" class="modal__error"></span>
+            </label>
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+    </div>
+    <div class="modal" id="delete-card-modal">
+        <div class="modal__del-container">
+          <button type="button" class="modal__close-btn modal__close-btn_type_delete">
+            <img src="<%=require('./images/close_icon2.svg')%>" alt="close" class="modal__close-icon modal__close-icon_type_delete">
+          </button>
+          <form class="modal__del-form" novalidate> 
+            <h3 class="modal__del-title">Are you sure you want to delete this image?</h3>
+                <button type="submit" class="modal__submit-btn modal__submit-btn_delete">Delete</button>
+                <button type="button" class="modal__cancel-btn">Cancel</button>
+          </form>
+        </div>
     </div>
   </body>
 </html>
